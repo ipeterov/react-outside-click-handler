@@ -51,3 +51,12 @@ If `useCapture` is true, the event will be registered in the capturing phase and
 ### display: `PropTypes.oneOf(['block', 'flex', 'inline-block', 'inline', 'contents'])`
 
 By default, the `OutsideClickHandler` renders a `display: block` `<div />` to wrap the subtree defined by `children`. If desired, the `display` can be set to `inline-block`, `inline`, `flex`, or `contents` instead. There is no way not to render a wrapping `<div />`.
+
+
+## FAQ
+
+### I need the className or styles props, are they available?
+Those particular props are not available as a design choice, [check out this article](https://medium.com/@JanPaul123/don-t-pass-css-classes-between-components-e9f7ab192785) for more in-depth reasoning. But if the props that are available don't cover your use-case, please create an issue and describe your use-case - we will be happy to accomodate it.
+
+### The wrapper `<div />` messes with the width or height of the content inside it
+Try passing the `display="contents"` prop - according to MDN, it [replaces the element box by their pseudo-box and their child boxes](https://developer.mozilla.org/en-US/docs/Web/CSS/display#box).
